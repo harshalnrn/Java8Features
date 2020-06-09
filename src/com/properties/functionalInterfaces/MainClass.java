@@ -113,7 +113,7 @@ public class MainClass {
         );
 
 
-        //comment: filter method should return boolean only . filter and collect, based upon condition.
+        //comment: filter method should return boolean only . filter and collect, based upon condition...
         empList.stream().filter(i -> {
                     if (i.getEmployeeNo() % 2 == 0) {
                         empList.stream().collect(Collectors.toList());
