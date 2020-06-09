@@ -131,7 +131,7 @@ public class MainClass {
 
 
 //wont work //empList.stream().forEach(i -> (i.getEmployeeNo()%2==0) ?  System.out.println("even number") : (i.getEmployeeNo()%3==0) ? System.out.println("divisible by 3") :  System.out.println("neighter divisible by 2 or 3") );
-
+        System.out.println("empty");
 System.out.println("end of main method");
     }
 
