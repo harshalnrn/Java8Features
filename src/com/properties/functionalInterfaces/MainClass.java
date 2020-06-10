@@ -126,9 +126,10 @@ public class MainClass {
                 }
         );
 
-        //try above conditional blocks using ternary operator, inside streams.. It wont work!!...
+
+        //.
         int a = 0;
-        int j = (a == 0) ? (1) : (a == 1) ? (2) : (3);  //use ternary operators only when statement is short, and concise, and you assign variable based upon conditions
+        int j = (a == 0) ? (1) : (a == 1) ? (2) : (3);  //..use ternary operators only when statement is short, and concise, and you assign variable based upon conditions
 
 
 //wont work //empList.stream().forEach(i -> (i.getEmployeeNo()%2==0) ?  System.out.println("even number") : (i.getEmployeeNo()%3==0) ? System.out.println("divisible by 3") :  System.out.println("neighter divisible by 2 or 3") );
