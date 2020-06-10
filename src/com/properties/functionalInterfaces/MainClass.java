@@ -126,7 +126,9 @@ public class MainClass {
                 }
         );
 
-System.out.println("sample1");
+
+System.out.println("sample3");
+
         //.
         int a = 3;
 
