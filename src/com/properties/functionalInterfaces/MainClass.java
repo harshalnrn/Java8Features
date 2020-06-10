@@ -126,7 +126,7 @@ public class MainClass {
                 }
         );
 
-        //try above conditional blocks using ternary operator, inside streams. It wont work!!
+        //try above conditional blocks using ternary operator, inside streams. It wont work!!..
         int a = 0;
         int j = (a == 0) ? (1) : (a == 1) ? (2) : (3);  //use ternary operators only when statement is short, and concise, and you assign variable based upon conditions
 
