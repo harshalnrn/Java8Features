@@ -130,7 +130,6 @@ public class MainClass {
         //.
         int a = 0;
 
-
         int j = (a == 0) ? (1) : (a == 1) ? (2) : (3);  //..use ternary operators only when statement is short, and concise, and you assign variable based upon conditions
 
 
