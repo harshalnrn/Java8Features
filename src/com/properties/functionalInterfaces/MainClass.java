@@ -107,12 +107,13 @@ public class MainClass {
                     } else {
                         i.setEmployeeNo(i.getEmployeeNo() + 5);
                     }
+
                     return i.getEmployeeNo();
                 }
         );
 
 
-        //filter method should return boolean only . filter and collect, based upon condition
+        //comment: filter method should return boolean only . filter and collect, based upon condition.
         empList.stream().filter(i -> {
                     if (i.getEmployeeNo() % 2 == 0) {
                         empList.stream().collect(Collectors.toList());
@@ -125,14 +126,16 @@ public class MainClass {
                 }
         );
 
-        //try above conditional blocks using ternary operator, inside streams. It wont work!!
-        int a = 0;
-        int j = (a == 0) ? (1) : (a == 1) ? (2) : (3);  //use ternary operators only when statement is short, and concise, and you assign variable based upon conditions
+System.out.println("sample2");
+        //.
+        int a = 3;
+
+        int j = (a == 0) ? (1) : (a == 1) ? (2) : (3);  //..use ternary operators only when statement is short, and concise, and you assign variable based upon conditions
 
 
 //wont work //empList.stream().forEach(i -> (i.getEmployeeNo()%2==0) ?  System.out.println("even number") : (i.getEmployeeNo()%3==0) ? System.out.println("divisible by 3") :  System.out.println("neighter divisible by 2 or 3") );
-
-
+        System.out.println("empty");
+System.out.println("end of main method");
     }
 
 }
