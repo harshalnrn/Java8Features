@@ -6,6 +6,10 @@ import sun.reflect.generics.tree.Tree;
 import java.util.*;
 import java.util.stream.Collectors;
 
+
+
+
+//These programs explain FunctionalInterfaces, Lambda expressions, StreamAPI
 public class MainClass {
 
 
@@ -37,11 +41,7 @@ public class MainClass {
         m1.getTypeOfMusic();
 
 
-
-
 //below is comparator implementation using lambda expressions, where we sort lists, (i.e Comparator interface is a functional interface)
-
-
 
 
         Comparator<Integer> comparator = (i, j) -> j - i;                   //implementation using lambda expresions, instead of child class
@@ -79,14 +79,28 @@ public class MainClass {
         System.out.println(set);
         System.out.println(map);
 
-//---------------------------------------------------------------------------------------------------------------
-        //Dealing with multiple conditional blocks in filter/map.forEach
+//----------------------STREAMS -----------------------------------------------------------------------------------------
 
 
         //inner loop/conditions blocks inside map/filter/reduce/forEach of streams
         //note lambda expression must end like a statement
+        //Predicate, Consumer, Function :  functional interfaces.
+        empList.stream().forEach(i -> System.out.print(i)); // lambda expression need not return
+        //OR
+        empList.stream().forEach(i -> {
+            System.out.print(i);
+        });   //Consumer interface type as parameter (i.e lambda implementation instead of concrete reference)
 
-        //no return in forEach
+        empList.stream().filter(i -> (i.getEmployeeNo() % 2 == 0));  // (i.e Predicate interface type as parameter (i.e lambda implementation instead of concrete reference))
+        //above lambda expression needs to mandatorily return boolean
+
+        empList.stream().map(i -> (i.getEmployeeNo() % 2 == 0));         //(i.e Function interface type as parameter (i.e lambda implementation instead of concrete object)
+
+        //above lambda expression needs to mandatorily return any type.
+
+        //  ----------- //Dealing with multiple conditional blocks in filter/map.forEach----------------------------------------------------------------------------
+
+        //no return in forEach // block implementation
         empList.stream().forEach(i -> {
             if (i.getEmployeeNo() % 2 == 0) {
                 System.out.println("even number");
@@ -126,7 +140,7 @@ public class MainClass {
                 }
         );
 
-System.out.println("sample2");
+        System.out.println("sample2");
         //.
         int a = 3;
 
@@ -135,7 +149,7 @@ System.out.println("sample2");
 
 //wont work //empList.stream().forEach(i -> (i.getEmployeeNo()%2==0) ?  System.out.println("even number") : (i.getEmployeeNo()%3==0) ? System.out.println("divisible by 3") :  System.out.println("neighter divisible by 2 or 3") );
         System.out.println("empty");
-System.out.println("end of main method");
+        System.out.println("end of main method");
     }
 
 }
