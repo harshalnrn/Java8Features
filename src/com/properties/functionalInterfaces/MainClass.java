@@ -13,18 +13,26 @@ import java.util.stream.Collectors;
 public class MainClass {
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args)  {
 
         Shape c = new Sqare();  //traditional using child implementing classes
+        try {
+            //searching for a class with assining it to class type
+            Class c1 = Class.forName("com.interfaces.methodOverriding.Sqare");
+        }
+        catch(ClassNotFoundException e){
+
+        }
+        System.out.println(c.getClass().getName()); // get class name of object // helpful when we working with inheritence/poly where we use parent references
         Shape b = (int a) -> {
             return a * a;
         };
 
-        Shape k = a -> {           //() optional and type inference
+        Shape k = a -> {           //() and type inference optional
             return a * a;
         };
 
-        Shape l = a -> a * a;     //() {} optional ,type, return inference
+        Shape l = a -> a * a;     //() {} ,type, return inference all get optional in case of single statement implementation
 
         System.out.println(c.area(4));
         System.out.println(b.area(4));
@@ -32,7 +40,7 @@ public class MainClass {
         System.out.println(l.area(4));
 
 
-        //multiple implementation allowed as also in traditional approach
+        //multiple implementation of interface is allowed as also in traditional approach
 
         Music m = () -> System.out.println("Classical music");
         Music m1 = () -> System.out.println("jazz music");
@@ -40,9 +48,10 @@ public class MainClass {
         m.getTypeOfMusic();
         m1.getTypeOfMusic();
 
-
+//---------------------------Comparator implementation using lambda---------------------------------------------------------------------------------------
 //below is comparator implementation using lambda expressions, where we sort lists, (i.e Comparator interface is a functional interface)
-
+//note:  We have assigned a lambda expression to any variable and pass it like any other object. Bute note that only singleton bean per lambda expression.
+// Whereas in case of conrete, you can create n no of beans for same concrete class that implements the func interface.
 
         Comparator<Integer> comparator = (i, j) -> j - i;                   //implementation using lambda expresions, instead of child class
         Comparator<Employee> comparator1 = (i, j) -> j.getEmployeeNo() - i.getEmployeeNo();
@@ -100,11 +109,15 @@ public class MainClass {
 
         //  ----------- //Dealing with multiple conditional blocks in filter/map.forEach----------------------------------------------------------------------------
 
-        //no return in forEach // block implementation
+        //forEach is void method // block implementation
+
         empList.stream().forEach(i -> {
+            int j=1;
             if (i.getEmployeeNo() % 2 == 0) {
+                j=2;
                 System.out.println("even number");
             } else if (i.getEmployeeNo() % 3 == 0) {
+                j=4;
                 System.out.println("divisible by 3");
             } else {
                 System.out.println("neighter divisible by 2 or 3");
@@ -112,6 +125,7 @@ public class MainClass {
         }); //end as a statement
 
 
+        //note: return for map/filter gets returned for each element.
         // map method should madatoriy return
         empList.stream().map(i -> {
                     if (i.getEmployeeNo() % 2 == 0) {
@@ -138,13 +152,13 @@ public class MainClass {
                     }
                     return true;
                 }
-        );
+        ).collect(Collectors.toList());
 
         System.out.println("sample2");
         //.
         int a = 3;
 
-        int j = (a == 0) ? (1) : (a == 1) ? (2) : (3);  //..use ternary operators only when statement is short, and concise, and you assign variable based upon conditions
+        int j = (a == 0) ? (1) : (a == 1) ? (2) : (3);  //..use ternary operators for conditional assignment, only when statement is short, and concise
 
 
 //wont work //empList.stream().forEach(i -> (i.getEmployeeNo()%2==0) ?  System.out.println("even number") : (i.getEmployeeNo()%3==0) ? System.out.println("divisible by 3") :  System.out.println("neighter divisible by 2 or 3") );
